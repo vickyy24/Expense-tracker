@@ -1,25 +1,33 @@
-function TransactionList() {
-  return (
-    <div className="mb-6">
-      
-      <h3 className="font-semibold mb-2">History</h3>
+function TransactionList({ TransactionList }) {
+    return (
+        <div className="mt-4">
 
-      <ul className="space-y-2">
-        
-        <li className="flex justify-between p-2 bg-gray-50 rounded">
-          <span>Salary</span>
-          <span className="text-green-500">+₹5000</span>
-        </li>
+            <h3 className="text-lg font-semibold mb-2">History</h3>
 
-        <li className="flex justify-between p-2 bg-gray-50 rounded">
-          <span>Groceries</span>
-          <span className="text-red-500">-₹200</span>
-        </li>
+            <ul className="space-y-2">
 
-      </ul>
+                {TransactionList.map((item) => (
+                    <li key={item.id} className="flex justify-between items-center bg-gray-50 p-3 rounded border">
+                        
+                        <div>
+                            <p className="font-medium">{item.text}</p>
 
-    </div>
-  );
+                            
+                            <p className="text-xs text-gray-500">
+                                {new Date(item.date).toLocaleDateString()}
+                            </p>
+                        </div>
+
+                        <span className={item.amount > 0 ? "text-green-500" : "text-red-500"}>
+                            {item.amount > 0 ? "+" : ""}₹{item.amount}
+                        </span>
+
+                    </li>
+                ))}
+            </ul>
+
+        </div>
+    );
 }
 
 export default TransactionList;
