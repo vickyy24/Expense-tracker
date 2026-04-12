@@ -12,18 +12,8 @@ function IncomeExpenses({ TransactionList }) {
     }
   });
 
-  const yearlyIncome = monthlyIncome * 12;
-  const balance = yearlyIncome - expense;
-
   return (
     <div className="bg-gray-50 p-4 rounded mb-4">
-
-      <div className="text-center mb-4">
-        <p className="text-gray-500">Remaining Balance</p>
-        <h2 className="text-3xl font-bold">
-          ₹{balance}
-        </h2>
-      </div>
 
       <div className="flex justify-center items-center gap-16">
 

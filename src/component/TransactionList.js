@@ -12,9 +12,13 @@ function TransactionList({ TransactionList }) {
                         <div>
                             <p className="font-medium">{item.text}</p>
 
-                            
+                            {/* ✅ UPDATED DATE FORMAT */}
                             <p className="text-xs text-gray-500">
-                                {new Date(item.date).toLocaleDateString()}
+                                {new Date(item.date).toLocaleDateString("en-GB", {
+                                    day: "2-digit",
+                                    month: "long",
+                                    year: "numeric"
+                                })}
                             </p>
                         </div>
 
