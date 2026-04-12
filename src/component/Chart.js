@@ -2,12 +2,12 @@ import ChartBar from "./ChartBar";
 
 function Chart({ data, TransactionList }) {
 
-  let max = 0;
+  let income = 0;
 
-  // use total income as max
+  // ✅ get salary ONCE
   TransactionList.forEach((item) => {
     if (item.amount > 0) {
-      max += item.amount;
+      income = item.amount;   // ✅ NOT +=
     }
   });
 
@@ -19,7 +19,7 @@ function Chart({ data, TransactionList }) {
           key={item.label}
           label={item.label}
           value={item.value}
-          max={max}
+          max={income}   // ✅ fixed monthly income
         />
       ))}
 
